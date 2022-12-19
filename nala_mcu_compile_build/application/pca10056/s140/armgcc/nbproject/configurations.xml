@@ -1,0 +1,2255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+    </df>
+    <logicalFolder name="trunk"
+                   displayName="trunk"
+                   projectFiles="true"
+                   root="../../..">
+      <logicalFolder name="components" displayName="components" projectFiles="true">
+        <logicalFolder name="ble" displayName="ble" projectFiles="true">
+          <logicalFolder name="ble_advertising"
+                         displayName="ble_advertising"
+                         projectFiles="true">
+            <itemPath>../../../../../components/ble/ble_advertising/ble_advertising.c</itemPath>
+            <itemPath>../../../../../components/ble/ble_advertising/ble_advertising.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="ble_link_ctx_manager"
+                         displayName="ble_link_ctx_manager"
+                         projectFiles="true">
+            <itemPath>../../../../../components/ble/ble_link_ctx_manager/ble_link_ctx_manager.c</itemPath>
+            <itemPath>../../../../../components/ble/ble_link_ctx_manager/ble_link_ctx_manager.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="ble_services"
+                         displayName="ble_services"
+                         projectFiles="true">
+            <logicalFolder name="ble_nus" displayName="ble_nus" projectFiles="true">
+              <itemPath>../../../../../components/ble/ble_services/ble_nus/ble_nus.c</itemPath>
+              <itemPath>../../../../../components/ble/ble_services/ble_nus/ble_nus.h</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="common" displayName="common" projectFiles="true">
+            <itemPath>../../../../../components/ble/common/ble_advdata.c</itemPath>
+            <itemPath>../../../../../components/ble/common/ble_advdata.h</itemPath>
+            <itemPath>../../../../../components/ble/common/ble_conn_params.c</itemPath>
+            <itemPath>../../../../../components/ble/common/ble_conn_params.h</itemPath>
+            <itemPath>../../../../../components/ble/common/ble_conn_state.c</itemPath>
+            <itemPath>../../../../../components/ble/common/ble_conn_state.h</itemPath>
+            <itemPath>../../../../../components/ble/common/ble_srv_common.c</itemPath>
+            <itemPath>../../../../../components/ble/common/ble_srv_common.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="nrf_ble_gatt"
+                         displayName="nrf_ble_gatt"
+                         projectFiles="true">
+            <itemPath>../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.c</itemPath>
+            <itemPath>../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="nrf_ble_qwr" displayName="nrf_ble_qwr" projectFiles="true">
+            <itemPath>../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.c</itemPath>
+            <itemPath>../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.h</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="boards" displayName="boards" projectFiles="true">
+          <itemPath>../../../../../components/boards/boards.c</itemPath>
+          <itemPath>../../../../../components/boards/boards.h</itemPath>
+          <itemPath>../../../../../components/boards/pca10056.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="libraries" displayName="libraries" projectFiles="true">
+          <logicalFolder name="atomic" displayName="atomic" projectFiles="true">
+            <itemPath>../../../../../components/libraries/atomic/nrf_atomic.c</itemPath>
+            <itemPath>../../../../../components/libraries/atomic/nrf_atomic.h</itemPath>
+            <itemPath>../../../../../components/libraries/atomic/nrf_atomic_internal.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="atomic_fifo" displayName="atomic_fifo" projectFiles="true">
+            <itemPath>../../../../../components/libraries/atomic_fifo/nrf_atfifo.c</itemPath>
+            <itemPath>../../../../../components/libraries/atomic_fifo/nrf_atfifo.h</itemPath>
+            <itemPath>../../../../../components/libraries/atomic_fifo/nrf_atfifo_internal.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="atomic_flags"
+                         displayName="atomic_flags"
+                         projectFiles="true">
+            <itemPath>../../../../../components/libraries/atomic_flags/nrf_atflags.c</itemPath>
+            <itemPath>../../../../../components/libraries/atomic_flags/nrf_atflags.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="balloc" displayName="balloc" projectFiles="true">
+            <itemPath>../../../../../components/libraries/balloc/nrf_balloc.c</itemPath>
+            <itemPath>../../../../../components/libraries/balloc/nrf_balloc.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="bootloader" displayName="bootloader" projectFiles="true">
+            <itemPath>../../../../../components/libraries/bootloader/nrf_bootloader_info.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="bsp" displayName="bsp" projectFiles="true">
+            <itemPath>../../../../../components/libraries/bsp/bsp.c</itemPath>
+            <itemPath>../../../../../components/libraries/bsp/bsp.h</itemPath>
+            <itemPath>../../../../../components/libraries/bsp/bsp_btn_ble.c</itemPath>
+            <itemPath>../../../../../components/libraries/bsp/bsp_btn_ble.h</itemPath>
+            <itemPath>../../../../../components/libraries/bsp/bsp_config.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="button" displayName="button" projectFiles="true">
+            <itemPath>../../../../../components/libraries/button/app_button.c</itemPath>
+            <itemPath>../../../../../components/libraries/button/app_button.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="delay" displayName="delay" projectFiles="true">
+            <itemPath>../../../../../components/libraries/delay/nrf_delay.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="experimental_section_vars"
+                         displayName="experimental_section_vars"
+                         projectFiles="true">
+            <itemPath>../../../../../components/libraries/experimental_section_vars/nrf_section.h</itemPath>
+            <itemPath>../../../../../components/libraries/experimental_section_vars/nrf_section_iter.c</itemPath>
+            <itemPath>../../../../../components/libraries/experimental_section_vars/nrf_section_iter.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="fifo" displayName="fifo" projectFiles="true">
+            <itemPath>../../../../../components/libraries/fifo/app_fifo.c</itemPath>
+            <itemPath>../../../../../components/libraries/fifo/app_fifo.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="hardfault" displayName="hardfault" projectFiles="true">
+            <itemPath>../../../../../components/libraries/hardfault/hardfault_implementation.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="log" displayName="log" projectFiles="true">
+            <logicalFolder name="src" displayName="src" projectFiles="true">
+              <itemPath>../../../../../components/libraries/log/src/nrf_log_backend_rtt.c</itemPath>
+              <itemPath>../../../../../components/libraries/log/src/nrf_log_backend_serial.c</itemPath>
+              <itemPath>../../../../../components/libraries/log/src/nrf_log_backend_serial.h</itemPath>
+              <itemPath>../../../../../components/libraries/log/src/nrf_log_ctrl_internal.h</itemPath>
+              <itemPath>../../../../../components/libraries/log/src/nrf_log_default_backends.c</itemPath>
+              <itemPath>../../../../../components/libraries/log/src/nrf_log_frontend.c</itemPath>
+              <itemPath>../../../../../components/libraries/log/src/nrf_log_internal.h</itemPath>
+              <itemPath>../../../../../components/libraries/log/src/nrf_log_str_formatter.c</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../components/libraries/log/nrf_log.h</itemPath>
+            <itemPath>../../../../../components/libraries/log/nrf_log_backend_interface.h</itemPath>
+            <itemPath>../../../../../components/libraries/log/nrf_log_backend_rtt.h</itemPath>
+            <itemPath>../../../../../components/libraries/log/nrf_log_ctrl.h</itemPath>
+            <itemPath>../../../../../components/libraries/log/nrf_log_default_backends.h</itemPath>
+            <itemPath>../../../../../components/libraries/log/nrf_log_instance.h</itemPath>
+            <itemPath>../../../../../components/libraries/log/nrf_log_str_formatter.h</itemPath>
+            <itemPath>../../../../../components/libraries/log/nrf_log_types.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="memobj" displayName="memobj" projectFiles="true">
+            <itemPath>../../../../../components/libraries/memobj/nrf_memobj.c</itemPath>
+            <itemPath>../../../../../components/libraries/memobj/nrf_memobj.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="mutex" displayName="mutex" projectFiles="true">
+            <itemPath>../../../../../components/libraries/mutex/nrf_mtx.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="pwr_mgmt" displayName="pwr_mgmt" projectFiles="true">
+            <itemPath>../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.c</itemPath>
+            <itemPath>../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="queue" displayName="queue" projectFiles="true">
+            <itemPath>../../../../../components/libraries/queue/nrf_queue.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="ringbuf" displayName="ringbuf" projectFiles="true">
+            <itemPath>../../../../../components/libraries/ringbuf/nrf_ringbuf.c</itemPath>
+            <itemPath>../../../../../components/libraries/ringbuf/nrf_ringbuf.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="scheduler" displayName="scheduler" projectFiles="true">
+            <itemPath>../../../../../components/libraries/scheduler/app_scheduler.c</itemPath>
+            <itemPath>../../../../../components/libraries/scheduler/app_scheduler.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="sortlist" displayName="sortlist" projectFiles="true">
+            <itemPath>../../../../../components/libraries/sortlist/nrf_sortlist.c</itemPath>
+            <itemPath>../../../../../components/libraries/sortlist/nrf_sortlist.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="strerror" displayName="strerror" projectFiles="true">
+            <itemPath>../../../../../components/libraries/strerror/nrf_strerror.c</itemPath>
+            <itemPath>../../../../../components/libraries/strerror/nrf_strerror.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="timer" displayName="timer" projectFiles="true">
+            <itemPath>../../../../../components/libraries/timer/app_timer.h</itemPath>
+            <itemPath>../../../../../components/libraries/timer/app_timer2.c</itemPath>
+            <itemPath>../../../../../components/libraries/timer/drv_rtc.c</itemPath>
+            <itemPath>../../../../../components/libraries/timer/drv_rtc.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="uart" displayName="uart" projectFiles="true">
+            <itemPath>../../../../../components/libraries/uart/app_uart.h</itemPath>
+            <itemPath>../../../../../components/libraries/uart/app_uart_fifo.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="util" displayName="util" projectFiles="true">
+            <itemPath>../../../../../components/libraries/util/app_error.c</itemPath>
+            <itemPath>../../../../../components/libraries/util/app_error.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/app_error_handler_gcc.c</itemPath>
+            <itemPath>../../../../../components/libraries/util/app_error_weak.c</itemPath>
+            <itemPath>../../../../../components/libraries/util/app_error_weak.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/app_util.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/app_util_platform.c</itemPath>
+            <itemPath>../../../../../components/libraries/util/app_util_platform.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/nordic_common.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/nrf_assert.c</itemPath>
+            <itemPath>../../../../../components/libraries/util/nrf_assert.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/sdk_common.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/sdk_errors.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/sdk_macros.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/sdk_os.h</itemPath>
+            <itemPath>../../../../../components/libraries/util/sdk_resources.h</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="softdevice" displayName="softdevice" projectFiles="true">
+          <logicalFolder name="common" displayName="common" projectFiles="true">
+            <itemPath>../../../../../components/softdevice/common/nrf_sdh.c</itemPath>
+            <itemPath>../../../../../components/softdevice/common/nrf_sdh.h</itemPath>
+            <itemPath>../../../../../components/softdevice/common/nrf_sdh_ble.c</itemPath>
+            <itemPath>../../../../../components/softdevice/common/nrf_sdh_ble.h</itemPath>
+            <itemPath>../../../../../components/softdevice/common/nrf_sdh_soc.c</itemPath>
+            <itemPath>../../../../../components/softdevice/common/nrf_sdh_soc.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="s140" displayName="s140" projectFiles="true">
+            <logicalFolder name="headers" displayName="headers" projectFiles="true">
+              <logicalFolder name="nrf52" displayName="nrf52" projectFiles="true">
+                <itemPath>../../../../../components/softdevice/s140/headers/nrf52/nrf_mbr.h</itemPath>
+              </logicalFolder>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_err.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_gap.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_gatt.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_gattc.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_gatts.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_hci.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_l2cap.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_ranges.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/ble_types.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/nrf_error.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/nrf_error_sdm.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/nrf_error_soc.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/nrf_nvic.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/nrf_sd_def.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/nrf_sdm.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/nrf_soc.h</itemPath>
+              <itemPath>../../../../../components/softdevice/s140/headers/nrf_svc.h</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="toolchain" displayName="toolchain" projectFiles="true">
+          <logicalFolder name="cmsis" displayName="cmsis" projectFiles="true">
+            <logicalFolder name="include" displayName="include" projectFiles="true">
+              <itemPath>../../../../../components/toolchain/cmsis/include/cmsis_compiler.h</itemPath>
+              <itemPath>../../../../../components/toolchain/cmsis/include/cmsis_gcc.h</itemPath>
+              <itemPath>../../../../../components/toolchain/cmsis/include/cmsis_version.h</itemPath>
+              <itemPath>../../../../../components/toolchain/cmsis/include/core_cm4.h</itemPath>
+              <itemPath>../../../../../components/toolchain/cmsis/include/mpu_armv7.h</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="external" displayName="external" projectFiles="true">
+        <logicalFolder name="fprintf" displayName="fprintf" projectFiles="true">
+          <itemPath>../../../../../external/fprintf/nrf_fprintf.c</itemPath>
+          <itemPath>../../../../../external/fprintf/nrf_fprintf.h</itemPath>
+          <itemPath>../../../../../external/fprintf/nrf_fprintf_format.c</itemPath>
+          <itemPath>../../../../../external/fprintf/nrf_fprintf_format.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="segger_rtt" displayName="segger_rtt" projectFiles="true">
+          <itemPath>../../../../../external/segger_rtt/SEGGER_RTT.c</itemPath>
+          <itemPath>../../../../../external/segger_rtt/SEGGER_RTT.h</itemPath>
+          <itemPath>../../../../../external/segger_rtt/SEGGER_RTT_Conf.h</itemPath>
+          <itemPath>../../../../../external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c</itemPath>
+          <itemPath>../../../../../external/segger_rtt/SEGGER_RTT_printf.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="utf_converter"
+                       displayName="utf_converter"
+                       projectFiles="true">
+          <itemPath>../../../../../external/utf_converter/utf.c</itemPath>
+          <itemPath>../../../../../external/utf_converter/utf.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="integration" displayName="integration" projectFiles="true">
+        <logicalFolder name="nrfx" displayName="nrfx" projectFiles="true">
+          <logicalFolder name="legacy" displayName="legacy" projectFiles="true">
+            <itemPath>../../../../../integration/nrfx/legacy/apply_old_config.h</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_clock.c</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_clock.h</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_gpiote.h</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_pwm.h</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_saadc.h</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_timer.h</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_twi.c</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_twi.h</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_uart.c</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_uart.h</itemPath>
+            <itemPath>../../../../../integration/nrfx/legacy/nrf_drv_wdt.h</itemPath>
+          </logicalFolder>
+          <itemPath>../../../../../integration/nrfx/nrfx_config.h</itemPath>
+          <itemPath>../../../../../integration/nrfx/nrfx_glue.h</itemPath>
+          <itemPath>../../../../../integration/nrfx/nrfx_log.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="modules" displayName="modules" projectFiles="true">
+        <logicalFolder name="nrfx" displayName="nrfx" projectFiles="true">
+          <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
+            <logicalFolder name="include" displayName="include" projectFiles="true">
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrf_bitmask.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_clock.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_gpiote.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_power_clock.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_pwm.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_saadc.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_timer.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_twi.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_twi_twim.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_twim.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_uart.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_uarte.h</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/include/nrfx_wdt.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="src" displayName="src" projectFiles="true">
+              <logicalFolder name="prs" displayName="prs" projectFiles="true">
+                <itemPath>../../../../../modules/nrfx/drivers/src/prs/nrfx_prs.c</itemPath>
+                <itemPath>../../../../../modules/nrfx/drivers/src/prs/nrfx_prs.h</itemPath>
+              </logicalFolder>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_clock.c</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_gpiote.c</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_pwm.c</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_saadc.c</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_twi.c</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_twim.c</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_uart.c</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_uarte.c</itemPath>
+              <itemPath>../../../../../modules/nrfx/drivers/src/nrfx_wdt.c</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../modules/nrfx/drivers/nrfx_common.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/drivers/nrfx_errors.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="hal" displayName="hal" projectFiles="true">
+            <itemPath>../../../../../modules/nrfx/hal/nrf_clock.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_gpio.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_gpiote.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_power.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_pwm.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_rtc.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_saadc.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_temp.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_timer.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_twi.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_twim.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_uart.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_uarte.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/hal/nrf_wdt.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="mdk" displayName="mdk" projectFiles="true">
+            <itemPath>../../../../../modules/nrfx/mdk/compiler_abstraction.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf51_erratas.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf51_to_nrf52840.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf52840.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf52840_bitfields.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf52840_peripherals.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf52_erratas.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf52_to_nrf52840.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf53_erratas.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf91_erratas.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf_erratas.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/nrf_peripherals.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/system_nrf52840.c</itemPath>
+            <itemPath>../../../../../modules/nrfx/mdk/system_nrf52840.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="soc" displayName="soc" projectFiles="true">
+            <itemPath>../../../../../modules/nrfx/soc/nrfx_atomic.c</itemPath>
+            <itemPath>../../../../../modules/nrfx/soc/nrfx_atomic.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/soc/nrfx_atomic_internal.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/soc/nrfx_coredep.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/soc/nrfx_irqs.h</itemPath>
+            <itemPath>../../../../../modules/nrfx/soc/nrfx_irqs_nrf52840.h</itemPath>
+          </logicalFolder>
+          <itemPath>../../../../../modules/nrfx/nrfx.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="nala_mcu" displayName="nala_mcu" projectFiles="true">
+        <logicalFolder name="application" displayName="application" projectFiles="true">
+          <logicalFolder name="pca10056" displayName="pca10056" projectFiles="true">
+            <logicalFolder name="s140" displayName="s140" projectFiles="true">
+              <logicalFolder name="config" displayName="config" projectFiles="true">
+                <itemPath>../config/sdk_config.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+          <itemPath>../../../GenericTypeDefs.h</itemPath>
+          <itemPath>../../../acc.c</itemPath>
+          <itemPath>../../../acc.h</itemPath>
+          <itemPath>../../../acc_simba_lis2dh12.c</itemPath>
+          <itemPath>../../../acc_simba_lis2dh12.h</itemPath>
+          <itemPath>../../../acc_types.h</itemPath>
+          <itemPath>../../../ars_queue.h</itemPath>
+          <itemPath>../../../atel_util.c</itemPath>
+          <itemPath>../../../atel_util.h</itemPath>
+          <itemPath>../../../ble_data.c</itemPath>
+          <itemPath>../../../ble_data.h</itemPath>
+          <itemPath>../../../core_types.h</itemPath>
+          <itemPath>../../../lsm6dsl_drv.c</itemPath>
+          <itemPath>../../../lsm6dsl_reg.c</itemPath>
+          <itemPath>../../../lsm6dsl_reg.h</itemPath>
+          <itemPath>../../../main.c</itemPath>
+          <itemPath>../../../md_lis.h</itemPath>
+          <itemPath>../../../mnt_math.c</itemPath>
+          <itemPath>../../../mnt_math.h</itemPath>
+          <itemPath>../../../mp2762a_drv.c</itemPath>
+          <itemPath>../../../mp2762a_drv.h</itemPath>
+          <itemPath>../../../nala_hal.h</itemPath>
+          <itemPath>../../../one_wire_atel.c</itemPath>
+          <itemPath>../../../one_wire_atel.h</itemPath>
+          <itemPath>../../../platform_hal_drv.c</itemPath>
+          <itemPath>../../../platform_hal_drv.h</itemPath>
+          <itemPath>../../../retarget_rewritten.c</itemPath>
+          <itemPath>../../../rtcclock.c</itemPath>
+          <itemPath>../../../rtcclock.h</itemPath>
+          <itemPath>../../../system.c</itemPath>
+          <itemPath>../../../system.h</itemPath>
+          <itemPath>../../../uart_drv_ext.c</itemPath>
+          <itemPath>../../../uart_drv_ext.h</itemPath>
+          <itemPath>../../../user.c</itemPath>
+          <itemPath>../../../user.h</itemPath>
+          <itemPath>../../../util.c</itemPath>
+          <itemPath>../../../util.h</itemPath>
+          <itemPath>../../../version.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>nbproject/private/launcher.properties</itemPath>
+      <itemPath>../../../../nrf_scripts</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>GNU_Arm_Update_9|Cygwin</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-march=armv7e-m+fp -O3 -std=c99"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+          <cTool>
+            <preprocessorList>
+              <Elem>HARDWARE_IIC_DRV_SUPPORT</Elem>
+            </preprocessorList>
+          </cTool>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="../../../../../components/ble/ble_advertising/ble_advertising.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/ble/ble_link_ctx_manager/ble_link_ctx_manager.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/ble/ble_services/ble_nus/ble_nus.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/ble/common/ble_advdata.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/ble/common/ble_conn_params.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/ble/common/ble_conn_state.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/libraries/atomic_flags</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/ble/common/ble_srv_common.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/ble/nrf_ble_gatt/nrf_ble_gatt.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/ble/nrf_ble_qwr/nrf_ble_qwr.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/boards/boards.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/atomic/nrf_atomic.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/atomic_fifo/nrf_atfifo.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/atomic_flags/nrf_atflags.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/balloc/nrf_balloc.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/bsp/bsp.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/button</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../../../../../components/boards</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/bsp/bsp_btn_ble.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../../../../../components/boards</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/button</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/button/app_button.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/experimental_section_vars/nrf_section_iter.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/fifo/app_fifo.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/hardfault/hardfault_implementation.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/log/src/nrf_log_backend_rtt.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../external/segger_rtt</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../external/fprintf</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/log/src/nrf_log_backend_serial.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../external/fprintf</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/log/src/nrf_log_default_backends.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/log/src/nrf_log_frontend.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../../../../../components/libraries/ringbuf</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../external/fprintf</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/log/src/nrf_log_str_formatter.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../external/fprintf</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/memobj/nrf_memobj.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/pwr_mgmt/nrf_pwr_mgmt.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/ringbuf/nrf_ringbuf.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/scheduler/app_scheduler.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/sortlist/nrf_sortlist.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/strerror/nrf_strerror.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/timer/app_timer2.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/atomic_fifo</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/timer/drv_rtc.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/uart/app_uart_fifo.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/util/app_error.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/util/app_error_handler_gcc.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/util/app_error_weak.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/util/app_util_platform.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/libraries/util/nrf_assert.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/softdevice/common/nrf_sdh.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/softdevice/common/nrf_sdh_ble.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../components/softdevice/common/nrf_sdh_soc.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../external/fprintf/nrf_fprintf.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../external/fprintf/nrf_fprintf_format.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../external/segger_rtt/SEGGER_RTT.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../config</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../config</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../external/segger_rtt/SEGGER_RTT_printf.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../config</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../external/utf_converter/utf.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../integration/nrfx/legacy/nrf_drv_clock.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../integration/nrfx/legacy/nrf_drv_twi.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../integration/nrfx/legacy/nrf_drv_uart.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_clock.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_gpiote.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_pwm.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_saadc.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_twi.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/src/prs</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_twim.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_uart.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/src/prs</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_uarte.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/src/prs</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/nrfx_wdt.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/drivers/src/prs/nrfx_prs.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/mdk/system_nrf52840.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../../../modules/nrfx/soc/nrfx_atomic.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../acc.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../acc_simba_lis2dh12.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/pwr_mgmt</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/bootloader</pElem>
+            <pElem>../../../../../components/libraries/queue</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../atel_util.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../ble_data.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/pwr_mgmt</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/bootloader</pElem>
+            <pElem>../../../../../components/libraries/queue</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../lsm6dsl_drv.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../lsm6dsl_reg.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../main.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../../../../../components/ble/ble_advertising</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../../../../../components/ble/nrf_ble_gatt</pElem>
+            <pElem>../../../../../components/ble/nrf_ble_qwr</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/ble/ble_link_ctx_manager</pElem>
+            <pElem>../../../../../components/ble/ble_services/ble_nus</pElem>
+            <pElem>../../../../../components/libraries/pwr_mgmt</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../components/libraries/bsp</pElem>
+            <pElem>../../../../../components/boards</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../components/libraries/button</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/bootloader</pElem>
+            <pElem>../../../../../components/libraries/queue</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../mnt_math.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../mp2762a_drv.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/pwr_mgmt</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/bootloader</pElem>
+            <pElem>../../../../../components/libraries/queue</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../one_wire_atel.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/pwr_mgmt</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/bootloader</pElem>
+            <pElem>../../../../../components/libraries/queue</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../platform_hal_drv.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../components/libraries/pwr_mgmt</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/bootloader</pElem>
+            <pElem>../../../../../components/libraries/queue</pElem>
+            <pElem>../../../../../components/libraries/bsp</pElem>
+            <pElem>../../../../../components/boards</pElem>
+            <pElem>../../../../../components/libraries/button</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../retarget_rewritten.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/bsp</pElem>
+            <pElem>../../../../../components/boards</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/button</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../rtcclock.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="../../../system.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/libraries/pwr_mgmt</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/bootloader</pElem>
+            <pElem>../../../../../components/libraries/queue</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../uart_drv_ext.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+          <incDir>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../components/libraries/fifo</pElem>
+            <pElem>../../../../../components/libraries/delay</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/bsp</pElem>
+            <pElem>../../../../../components/boards</pElem>
+            <pElem>../../../../../components/libraries/button</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="../../../user.c" ex="false" tool="0" flavor2="3">
+      </item>
+      <item path="../../../util.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <folder path="trunk/components/ble/ble_advertising">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/ble/ble_advertising</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/ble/ble_link_ctx_manager">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/ble/ble_link_ctx_manager</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/ble/ble_services">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/ble/ble_services/ble_nus</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../../../../../components/ble/ble_link_ctx_manager</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/ble/nrf_ble_gatt">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/ble/nrf_ble_gatt</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/ble/nrf_ble_qwr">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/ble/nrf_ble_qwr</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/ble/common</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/boards">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/boards</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/atomic">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/atomic_fifo">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/atomic_fifo</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/atomic_flags">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/atomic_flags</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/balloc">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/bsp">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/bsp</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/button">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/button</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/libraries/timer</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/experimental_section_vars">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/fifo">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/fifo</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/hardfault">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/libraries/hardfault</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/log">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/memobj">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/pwr_mgmt">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/pwr_mgmt</pElem>
+            <pElem>../../../../../components/libraries/mutex</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/memobj</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/libraries/balloc</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/ringbuf">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/ringbuf</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/atomic</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/scheduler">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/scheduler</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/sortlist">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/sortlist</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/strerror">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/timer">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/timer</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/uart">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/uart</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/libraries/fifo</pElem>
+            <pElem>../../../../../modules/nrfx/drivers/include</pElem>
+            <pElem>../../../../../modules/nrfx/hal</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/libraries/util">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/components/softdevice">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/common</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/external/fprintf">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../external/fprintf</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/external/segger_rtt">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../external/segger_rtt</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/external/utf_converter">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../external/utf_converter</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/modules/nrfx/drivers/src/prs">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../modules/nrfx/drivers/src/prs</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../../../../../components/libraries/log</pElem>
+            <pElem>../../../../../components/libraries/log/src</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem>../../../../../components/libraries/experimental_section_vars</pElem>
+            <pElem>../../../../../components/libraries/strerror</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/modules/nrfx/mdk">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/modules/nrfx/soc">
+        <cTool>
+          <incDir>
+            <pElem>../../../../../modules/nrfx/soc</pElem>
+            <pElem>../../../../../components/toolchain/cmsis/include</pElem>
+            <pElem>../../../../../modules/nrfx/mdk</pElem>
+            <pElem>../../../../../components/libraries/util</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers</pElem>
+            <pElem>../../../../../modules/nrfx</pElem>
+            <pElem>../../../../../integration/nrfx</pElem>
+            <pElem>../config</pElem>
+            <pElem>../../../../../modules/nrfx/drivers</pElem>
+            <pElem>../../../../../integration/nrfx/legacy</pElem>
+            <pElem>../../../../../components/softdevice/s140/headers/nrf52</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="trunk/nala_mcu">
+        <cTool>
+          <incDir>
+            <pElem>..</pElem>
+            <pElem></pElem>
+          </incDir>
+        </cTool>
+      </folder>
+    </conf>
+  </confs>
+</configurationDescriptor>
