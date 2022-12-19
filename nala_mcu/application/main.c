@@ -108,7 +108,7 @@
 #if  (SUPPORT_BLE_CENTRAL_AND_PERIPH == 1)
 #include "ble_conn_params.h"
 
-#define DEVICE_NAME                     "miyue"                                     /**< Name of device. Will be included in the advertising data. */
+#define DEVICE_NAME                     "nala"                                     /**< Name of device. Will be included in the advertising data. */
 #define NUS_SERVICE_UUID_TYPE           BLE_UUID_TYPE_VENDOR_BEGIN                  /**< UUID type for the Nordic UART Service (vendor specific). */
 #define MIN_CONN_INTERVAL               MSEC_TO_UNITS(15, UNIT_1_25_MS)             /**< Minimum acceptable connection interval (20 ms), Connection interval uses 1.25 ms units. */
 #define MAX_CONN_INTERVAL               MSEC_TO_UNITS(30, UNIT_1_25_MS)             /**< Maximum acceptable connection interval (75 ms), Connection interval uses 1.25 ms units. */
