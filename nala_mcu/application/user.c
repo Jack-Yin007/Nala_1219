@@ -262,7 +262,8 @@ void MCU_TurnOn_MDM(void)
 }
 
 uint8_t isMDMWakingMCU(void) {
-    return (pf_gpio_read(GPIO_MDM_WAKE_BLE) == MDM_WAKE_MCU_LEVEL) ? 1 : 0;
+    return (pf_gpio_read(GPIO_MDM_WAKE_BLE) == MDM_WAKE_MCU_LEVEL) ? 1 : 0; //121522 due to app lib function do not easy changed, here mcu changed the level
+    
     //return 0;
 }
 
@@ -287,7 +288,7 @@ void MCU_Sleep_MDM(void)
    nrf_delay_ms(2);
    monet_data.bbofftime = count1sec;
    disableEventIReadyFlag(); // LM-25
-   monet_gpio.Intstatus= 0;
+   monet_gpio.Intstatus = 0;
 }
 
 void MCU_Sleep_APP(void)
@@ -303,6 +304,7 @@ void MCU_Sleep_APP(void)
     configGPIO(GPIO_MDM_WAKE_BLE, monet_conf.gConf[GPIO_MDM_WAKE_BLE].status);
     configGPIO(GPIO_BLE_WAKE_MDM, monet_conf.gConf[GPIO_BLE_WAKE_MDM].status);
     monet_data.appActive = 0;
+    monet_data.isExitSleep = 0;
 }
 
 void MCU_Wakeup_APP(void)
@@ -313,6 +315,7 @@ void MCU_Wakeup_APP(void)
        {
             monet_data.uartToBeInit = 1;
             monet_data.uartTickCount = 0;
+            monet_data.isExitSleep = 1;
        }
    }
 }
@@ -838,7 +841,7 @@ void setdefaultConfig(void)
     monet_conf.gConf[GPIO_ONE_BUS_SLPZ].status              = (uint8_t)PIN_STATUS(0, 1, 1, 1); // NALAMCU-29
 
     monet_conf.gConf[GPIO_BLE_WAKE_MDM].status             = (uint8_t)PIN_STATUS(0, 1, 1, 0);
-    monet_conf.gConf[GPIO_MDM_WAKE_BLE].status              = (uint8_t)PIN_STATUS(1, 0, 1, 0); // NALAMCU-85
+    monet_conf.gConf[GPIO_MDM_WAKE_BLE].status              = (uint8_t)PIN_STATUS(1, 0, 0, 0); // NALAMCU-85
 
 
     monet_conf.IntPin = GPIO_TO_INDEX(GPIO_NONE);
@@ -2039,12 +2042,13 @@ void atel_timer1s(void)
                       time_table.hour,
                       time_table.minute,
                       time_table.second);
-    NRF_LOG_RAW_INFO("Int(0x%08x) Sleep(%d) WD(%d) SAlarm(%d) RC(%u) ",
+    NRF_LOG_RAW_INFO("Int(0x%08x) Sleep(%d) WD(%d) SAlarm(%d) RC(%u) Phlive(%08x)",
                       monet_gpio.Intstatus,
                       monet_data.SleepState,
                       monet_gpio.WDtimer,
                       monet_data.SleepAlarm,
-                      monet_data.rctime);
+                      monet_data.rctime,
+                      monet_data.phoneLive);
     NRF_LOG_RAW_INFO("OnDelay(%d) OffDelay(%d) OnInP(%d) OffInP(%d) eventIReadyFlag(%d) ",
                       monet_data.bbPowerOnDelay,
                       monet_data.bbPowerOffDelay,
@@ -2088,7 +2092,7 @@ void atel_timer1s(void)
                       pf_gpio_read(GPIO_BLE_WAKE_MDM),
                       pf_gpio_read(GPIO_MDM_WAKE_BLE));
 #if (SUPPORT_BLE_CENTRAL_AND_PERIPH == 1)
-    NRF_LOG_RAW_INFO("AdvStatus(%d) AdvDebounce (%d) AdvErrC(%d) \r",
+    NRF_LOG_RAW_INFO("AdvStatus(%d) AdvDebounce (%d) AdvErrC(%d) \r\n",
                       adv_control.bleAdvertiseStatus,
                       adv_control.shouldAdvDebounce,
                       adv_control.startAdvErrcode
@@ -2259,6 +2263,7 @@ void atel_timer1s(void)
 	
    // Check if wakeup call was ordered
 	//if (monet_data.phonePowerOn == 0)
+    if (monet_data.phonePowerOn == 0 || monet_data.SleepState == SLEEP_NORMAL)
 	{
 		if (monet_data.SleepAlarm != 0) {
 			monet_data.SleepAlarm--;
@@ -2323,7 +2328,9 @@ void atel_timer1s(void)
 //	if (monet_data.phoneLive & monet_data.interrupt)
 	if (monet_data.phoneLive & monet_gpio.Intstatus)
     {
+        if (!monet_data.isExitSleep)
 		monet_Icommand();
+        NRF_LOG_RAW_INFO("PhoneLive send instatus \r");
 	}
 
     if ((monet_data.ble_list_sync_wait) && (monet_data.phonePowerOn) && (monet_data.appActive))
@@ -4952,6 +4959,7 @@ static void monet_ble_Ccommand_A(uint8_t** param, uint8_t *p_len)
     uint8_t Param[16] = {0};
     uint8_t len = 0;
     uint8_t Length = 0;
+    uint8_t err_code = 0;
     Length = *p_len;
 
     *param += 1;
@@ -4978,33 +4986,35 @@ static void monet_ble_Ccommand_A(uint8_t** param, uint8_t *p_len)
             NRF_LOG_RAW_INFO("monet_bleCcommand_A(param[0] %d ) \r", (*param)[0]);
             // beacon_advertising_init(BEACON_MODE);
             beacon_advertising_update(beacon_adv_interval, beacon_adv_duration, 1, BEACON_MODE);
-            pf_adv_start(0);
+            err_code  = pf_adv_start(0);
         }
         else if (!adv_control.bleAdvertiseStatus && (Length == 2) && ((*param)[1] == 1))
         {
             NRF_LOG_RAW_INFO("monet_bleCcommand_A(param[1] %d ) \r", (*param)[1]);
             //beacon_advertising_init(NORMAL_MODE);
             beacon_advertising_update(beacon_adv_interval, beacon_adv_duration, 1, NORMAL_MODE);
-            pf_adv_start(0);
+            err_code = pf_adv_start(0);
         }
         else if (!adv_control.bleAdvertiseStatus && (Length == 2) && ((*param)[1] == 0))
         {
             NRF_LOG_RAW_INFO("monet_bleCcommand_A(param[1] %d ) \r", (*param)[1]);
             // beacon_advertising_init(BEACON_MODE);
             beacon_advertising_update(beacon_adv_interval, beacon_adv_duration, 1, BEACON_MODE);
-            pf_adv_start(0);
+            err_code = pf_adv_start(0);
         }
 
     }
 
     Param[0] = 'a';
-    //Param[1] = (*param)[0];
-    memcpy(Param + 1, *param, Length);
+    Param[1] = (*param)[0];
+    Param[2] = err_code;
+   // memcpy(Param + 1, *param, Length);
+    memcpy(Param + 3, *(param) + 1, Length - 1);   // app may give one paramter
 
     *param += Length;
     *p_len -= Length;
 
-    BuildFrame(IO_CMD_CHAR_BLE_CTRL, Param, len);
+    BuildFrame(IO_CMD_CHAR_BLE_CTRL, Param, len + 1);
 }
 
 static void monet_ble_Ccommand_Z(uint8_t** param, uint8_t *p_len)
@@ -5461,7 +5471,7 @@ void atel_uart_restore(void)
             //pf_gpio_write(GPIO_BLE_SLEEP_APP, 0);
             // NRF_LOG_RAW_INFO("GPIO_BLE_SLEEP_APP Low.\r");
         }
-        else if (2 == monet_data.uartTickCount){
+        else {
             // TODO: disbale uart tx rx gpio function
             NRF_LOG_RAW_INFO("atel_uart_restore UartTick:%d SleepChange:%d SleepState%d \r",monet_data.uartTickCount, monet_data.SleepStateChange, monet_data.SleepState);
             pf_uart_mdm_init(255,0);
@@ -6001,8 +6011,14 @@ void monet_Icommand(void)
     eventIReadyFlag = true;		// Keep this code for original code compatibility
 	
 	uint8_t pParam[4];
+    NRF_LOG_RAW_INFO("monet_Icommand(), monet_gpio.Intstatus(%08x : %08x) \r", monet_gpio.Intstatus, monet_data.phoneLive);
 	if(monet_data.phoneLive)
-        monet_gpio.Intstatus &= monet_data.phoneLive;
+    {
+        if (!monet_data.isExitSleep)
+        {
+            monet_gpio.Intstatus &= monet_data.phoneLive;  // keep the old logic
+        }
+    }
 	else 
         monet_gpio.Intstatus &= (monet_data.wakeBBMode | INT_MASK_ON);
 
@@ -6013,6 +6029,7 @@ void monet_Icommand(void)
 	BuildFrame('i', pParam, 4);
     SendMotionAlert();
 	monet_gpio.Intstatus = 0;
+    monet_data.isExitSleep = 0;
 
 #ifdef USE_TILT // PUMAMCU-136
     ars_clearTiltState();
@@ -7407,15 +7424,15 @@ void monet_DDcommand_decode_byte(uint8_t* pParam, uint8_t Length)
         if (pParam[2] == 1 && pParam[3] == 0)  // for this case, the app given st = 1, id = 0.  
         {
             index +=2;
-            monet_data.cameraTurnOnTimes =  ((pParam[index + 0]) | (pParam[index + 1] << 8) | (pParam[index + 2] << 16) | (pParam[index + 3] << 24));
-            monet_data.cameraTurnOffTimes = ((pParam[index + 4]) | (pParam[index + 5] << 8) | (pParam[index + 6] << 16) | (pParam[index + 7] << 24));
-            monet_data.peripheralAdcBackup = ((pParam[index + 8]) | (pParam[index + 9] << 8));
-            monet_data.peripheralRestartTimes = ((pParam[index + 10]) | (pParam[index + 11] << 8) | (pParam[index + 12] << 16) | (pParam[index + 13] << 24));
-            monet_data.peripheralRestartReason = ((pParam[index + 14]) | (pParam[index + 15] << 8) | (pParam[index + 16] << 16) | (pParam[index + 17] << 24));
-            monet_data.camera_commun_fail_times = ((pParam[index + 18]) | (pParam[index + 19] << 8) | (pParam[index + 20] << 16) | (pParam[index + 21] << 24));
-            monet_data.camera_files_read_fail_times = ((pParam[index + 22]) | (pParam[index + 23] << 8) | (pParam[index + 24] << 16) | (pParam[index + 25] << 24));
-            monet_data.peripheralRunTime = ((pParam[index + 26]) | (pParam[index + 27] << 8) | (pParam[index + 28] << 16) | (pParam[index + 29] << 24));
-            monet_data.peripheral_temp_ntc = ((pParam[index + 30]) | (pParam[index + 31] << 8));
+            monet_data.cameraTurnOnTimes                = ((pParam[index + 0]) | (pParam[index + 1] << 8) | (pParam[index + 2] << 16) | (pParam[index + 3] << 24));
+            monet_data.cameraTurnOffTimes               = ((pParam[index + 4]) | (pParam[index + 5] << 8) | (pParam[index + 6] << 16) | (pParam[index + 7] << 24));
+            monet_data.peripheralAdcBackup              = ((pParam[index + 8]) | (pParam[index + 9] << 8));
+            monet_data.peripheralRestartTimes           = ((pParam[index + 10]) | (pParam[index + 11] << 8) | (pParam[index + 12] << 16) | (pParam[index + 13] << 24));
+            monet_data.peripheralRestartReason          = ((pParam[index + 14]) | (pParam[index + 15] << 8) | (pParam[index + 16] << 16) | (pParam[index + 17] << 24));
+            monet_data.camera_commun_fail_times         = ((pParam[index + 18]) | (pParam[index + 19] << 8) | (pParam[index + 20] << 16) | (pParam[index + 21] << 24));
+            monet_data.camera_files_read_fail_times     = ((pParam[index + 22]) | (pParam[index + 23] << 8) | (pParam[index + 24] << 16) | (pParam[index + 25] << 24));
+            monet_data.peripheralRunTime                = ((pParam[index + 26]) | (pParam[index + 27] << 8) | (pParam[index + 28] << 16) | (pParam[index + 29] << 24));
+            monet_data.peripheral_temp_ntc              = ((pParam[index + 30]) | (pParam[index + 31] << 8));
 
             monet_data.peripheral_temp_nordic = ((pParam[index + 32]) | (pParam[index + 33] << 8) | (pParam[index + 34] << 16) | (pParam[index + 35] << 24));
             //if ((pParam[index + 31] & MASK_FOR_BIT(3)) == 1)

@@ -439,7 +439,7 @@ release:
 	rm -fr .\Release\dfu
 	mkdir .\Release\dfu
 	unzip $(RELEASE_FILE_NAME)_dfu.zip -d .\Release\dfu
-	.\Release\makeAzip.exe $(RELEASE_FILE_NAME)zipmcu00.azip 4 3100 1 3101 1 3106 1 3107 1 .\Release\dfu\$(RELEASE_FILE_NAME_NOPATH).dat I 0 0 .\Release\dfu\$(RELEASE_FILE_NAME_NOPATH).bin I 0 0
+	.\Release\makeAzip.exe $(RELEASE_FILE_NAME)zipmcu00.azip 7 3100 1 3100 2 3101 1 3101 2 3106 1 3106 2 3107 1 .\Release\dfu\$(RELEASE_FILE_NAME_NOPATH).dat I 0 0 .\Release\dfu\$(RELEASE_FILE_NAME_NOPATH).bin I 0 0
 #   .\Release\makeAzip.exe $(RELEASE_FILE_NAME)_zipmcu1 6 3035 2 3035 1 3101 1 3031 2 3031 1 5100 1 .\Release\dfu\$(RELEASE_FILE_NAME_NOPATH).dat I 1 0 .\Release\dfu\$(RELEASE_FILE_NAME_NOPATH).bin I 1 0
 	rm -fr $(RELEASE_FILE_NAME)_burn_whole.bat
 	touch $(RELEASE_FILE_NAME)_burn_whole.bat

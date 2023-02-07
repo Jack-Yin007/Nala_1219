@@ -1245,27 +1245,28 @@ static void services_init(void)
     APP_ERROR_CHECK(err_code);
 }
 
-void ble_adv_start(void)
+uint32_t ble_adv_start(void)
 {
     ret_code_t   err_code;
     err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
     adv_control.startAdvErrcode = err_code;
-    if (adv_control.bleAdvertiseStatus == NRF_SUCCESS)
+    if (adv_control.startAdvErrcode == NRF_SUCCESS)
     {
         adv_control.bleAdvertiseStatus = 1;
     }
 
     pf_log_raw(atel_log_ctl.core_en, "ble_adv_start called %d \r", err_code);
+    return err_code;
 }
 
 
 #if (SUPPORT_BLE_BEACON == 1)
-void ble_beacon_start(void)
+uint32_t ble_beacon_start(void)
 {
     ret_code_t err_code;
     err_code = sd_ble_gap_adv_start(m_advertising.adv_handle, APP_BLE_CONN_CFG_TAG);
     adv_control.startAdvErrcode = err_code;
-    if (adv_control.bleAdvertiseStatus == NRF_SUCCESS)
+    if (adv_control.startAdvErrcode == NRF_SUCCESS)
     {
         adv_control.bleAdvertiseStatus = 1;
     }
@@ -1273,7 +1274,7 @@ void ble_beacon_start(void)
     // err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
     // APP_ERROR_CHECK(err_code);
     pf_log_raw(atel_log_ctl.core_en, "ble_beacon_start called %d \r",err_code);
-
+    return err_code;
 }
 
 void beacon_advertising_init(uint8_t mode)
@@ -1629,25 +1630,20 @@ void normal_advertising_data_update(uint32_t interval, uint16_t duration, uint8_
 #define BEACON_MODE   0
 #define NORMAL_MODE   1
 
-void pf_adv_start(uint8_t adv_mode)
-{
-    // ret_code_t err_code;
-    // // if (!nrf_fstorage_is_busy(NULL))
-    // // {
-    // //     scan_start(); // start scan
-    // // }
-    // err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
-    // err_code = adv_control.startAdvErrcode;
-    // adv_control.bleAdvertiseStatus = 1;
-    // pf_log_raw(atel_log_ctl.core_en, "pf_adv_start called %d \r", err_code);
-    if (adv_mode == BEACON_MODE)
-    {
-        ble_beacon_start();
-    }
-    else if (adv_mode == NORMAL_MODE)
-    ble_adv_start();
+#define BEACON_API  BEACON_MODE
+#define NORMAL_API  NORMAL_MODE
 
+uint32_t pf_adv_start(uint8_t adv_api)
+{
+    uint32_t err_code = 0;
+    if (adv_api == BEACON_API)   // it only stands for the use the beacon api, whether it is a connectable adv relay on the function beacon_advertising_update().
+    {
+        err_code = ble_beacon_start();    //use the beacon api
+    }
+    else if (adv_api == NORMAL_API)
+    err_code = ble_adv_start();       // use the normal api
     //APP_ERROR_CHECK(err_code);  
+    return err_code;
 }
 
 void ble_aus_advertising_stop(void)
@@ -3183,6 +3179,10 @@ int main(void)
     }
 
     pf_wdt_init();
+
+    reset_info.restartReason = NRF_POWER->RESETREAS;
+    NRF_POWER->RESETREAS = NRF_POWER->RESETREAS;
+    NRF_LOG_RAW_INFO("The reset reason 0x%08x  \r",reset_info.restartReason);
 
     //Check if the system woke up from System OFF mode
     // if ((NRF_POWER->GPREGRET >> 4) == RESET_MEMORY_TEST_BYTE)

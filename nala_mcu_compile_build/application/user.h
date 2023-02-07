@@ -535,6 +535,7 @@ typedef struct {
     uint8_t             phonePowerOn;
     uint32_t            phoneOffCount;
 	uint32_t			phoneLive;
+    uint8_t             isExitSleep;
     uint8_t             V3PowerOn;
 	uint32_t			lastCount;
 	uint32_t			bBattMarkedCritical;    // SIMBAMCU-7 MNT-2240
@@ -668,6 +669,7 @@ typedef struct
 typedef struct {
     uint8_t             button_power_on;
     uint8_t             reset_from_dfu;
+    uint32_t            restartReason;
 } device_reset_info_t;
 
 typedef struct {
@@ -776,7 +778,7 @@ typedef struct {
 void beacon_advertising_update(uint32_t interval, uint16_t duration, uint8_t update, uint8_t mode);
 void ble_aus_advertising_stop(void);
 uint32_t pf_tx_power_set(int8_t tx_level);
-void pf_adv_start(uint8_t adv_mode);
+uint32_t pf_adv_start(uint8_t adv_api);
 extern ble_adv_control_t   adv_control;
 void ble_advertisement_status_inform(uint8_t state);  //code from simba
 #endif/* (SUPPORT_BLE_BEACON == 1) */

@@ -115,7 +115,8 @@
 #define MDM_PWKEY_TOGGLE_ON_MS		(800)
 #define MDM_PWKEY_TOGGLE_OFF_MS		(1000)
 #define MDM_POWER_TOGGLE_MS		 	(1000)
-#define MDM_WAKE_MCU_LEVEL (0)
+//#define MDM_WAKE_MCU_LEVEL (0)
+#define MDM_WAKE_MCU_LEVEL (1)  //121522 due to app lib function do not easy changed, here mcu changed the level
 #define MDM_OFF_POWER_HOLD_COUNT (33) // Second
 
 #define V3_TURN_ON_DELAY_MS			(50)
