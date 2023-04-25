@@ -61,7 +61,8 @@ void pic_turnOnBaseband(void)
 
     monet_data.bbPowerOnInprocess = 0;
 
-	clock_hfclk_request(); //NALAMCU-186//::Need to manually switch to the external 32 MHz crystal
+	//clock_hfclk_request(); //NALAMCU-186//::Need to manually switch to the external 32 MHz crystal
+	pf_sd_hfclk_request();
 
     if (monet_data.SleepState == SLEEP_HIBERNATE)	// Recover from Hibernate mode
     {
@@ -369,6 +370,8 @@ static uint32_t bat_chg_done_dur = 0;	// Battery charging done duration. Unit in
 // Other value would be ignored by caller.
 uint8_t getChargerState(void)
 {
+	uint16_t AdcBackup_mV;  //NALAMCU-201
+
 	uint8_t chg_state = 0;
 	uint8_t fault_type1 = 0;
 	uint8_t fault_type2 = 0;
@@ -417,9 +420,10 @@ uint8_t getChargerState(void)
 		return CHG_STATE_EXCEPTION;
 	}
 	
+	AdcBackup_mV = adc_to_vol_conv(monet_data.AdcBackup, VOL_BAT_FACTOR);  //NALAMCU-201
 	bat_vol = mp2762a_bat_vol_get();
 	chg_cur = mp2762a_bat_chg_cur_get();
-	if (bat_vol >= BAT_VOL_LIMIT && chg_cur < CHG_CUR_LIMIT)
+	if ((bat_vol >= BAT_VOL_LIMIT || AdcBackup_mV >= BAT_VOL_LIMIT) && chg_cur < CHG_CUR_LIMIT)  //NALAMCU-201
 	{
 		if (bat_chg_done_dur < BAT_CHG_DONE_DUR_MAX)	// Make sure it will not overflow
 			bat_chg_done_dur++;
@@ -512,7 +516,8 @@ void monet_setGPIOLowPowerMode(void)
 	if (monet_data.uartMdmTXDEnabled == 1)
 		pf_uart_mdm_deinit();
 
-	clock_hfclk_release(); //NALAMCU-186//::Need to manually switch to the external 32 MHz crystal
+	//clock_hfclk_release(); //NALAMCU-186//::Need to manually switch to the external 32 MHz crystal
+	pf_sd_hfclk_release();
 
 	pf_gpio_write(GPIO_BLE_RELAY, 0);
 	pf_gpio_write(GPIO_MDM_PWR_KEY, 0);

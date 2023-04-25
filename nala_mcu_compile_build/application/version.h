@@ -11,6 +11,6 @@
 #define     MNT_MAJOR           1
 #define     MNT_MINOR           0
 #define     MNT_REVISION        1
-#define     MNT_BUILD           42
+#define     MNT_BUILD           45
 
 #endif /* VERSION_H_ */

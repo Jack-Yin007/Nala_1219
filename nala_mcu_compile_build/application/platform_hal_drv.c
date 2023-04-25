@@ -6,6 +6,7 @@
 #include "acc_simba_lis2dh12.h"
 #include "ble_dtm.h"
 #include <stdarg.h>
+#include "nrf_drv_clock.h"
 
 /* Private define ------------------------------------------------------------*/
 typedef struct {
@@ -27,6 +28,7 @@ extern uint8_t lsm6dsl_intstatus_get(uint8_t int_num);
 static nrf_saadc_value_t saadc_buffer[2][ADC_CHANNELS_CNT];
 volatile uint8_t adc_convert_over = 0;
 uint8_t pf_adc_initialized = 0;
+volatile uint8_t keep_sync = 2;
 
 volatile uint32_t accInterruptFlag = 0;
 
@@ -1381,7 +1383,9 @@ void pf_cfg_before_hibernation(void)
 	if (monet_data.uartMdmTXDEnabled == 1)
 		pf_uart_mdm_deinit();
 	
-    clock_hfclk_release();  //NALAMCU-186//
+    //clock_hfclk_release();  //NALAMCU-186//
+    pf_sd_hfclk_release();
+
 	ble_send_timer_stop_c();
 	
 //	extern bool mp2762a_bfet_ctrl(bool setting);///////
@@ -1478,34 +1482,71 @@ void pf_cfg_recover_from_hibernation(void)
 	ble_send_timer_start_c();
 }
 
-void pf_cfg_before_sleep(void)
+void pf_cfg_before_sleep(void)   // This can as general api.  WARNING: the GPIO config depends on the project.
 {
 // WARNING: TODO.do not change
 
-//    // nrf_gpio_cfg_default(V_MODULE_EN);
-//    // nrf_gpio_cfg_default(P014_DC_DC_EN);
-//    // nrf_gpio_cfg_default(BLE_WAKE_MDM);
-//    // nrf_gpio_cfg_default(BLE_UART_TXD);
-//    nrf_gpio_cfg_default(MOD_PWRKEY);
-//    nrf_gpio_cfg_default(BLE_RESET_MDM);
-//    nrf_gpio_cfg_default(BLE_UART_RXD);
-//    // nrf_gpio_cfg_default(MDM_WAKE_BLE);
+	if (monet_data.uartPeriTXDEnabled == 1)
+		pf_uart_peri_deinit();
+	if (monet_data.uartMdmTXDEnabled == 1)
+		pf_uart_mdm_deinit();
 
-//    // nrf_gpio_cfg_default(I2C_SDA);
-//    // nrf_gpio_cfg_default(I2C_SCL);
-//    // nrf_gpio_cfg_default(ACC_INT1_PIN);
-//    // nrf_gpio_cfg_default(P016_BAT_EN);
-//    // nrf_gpio_cfg_default(BLE_P017_OUT1_RELAY);
-//    // nrf_gpio_cfg_default(VBAT_ADC_BLE);
-//    // nrf_gpio_cfg_default(VIN12V_ADC_BLE);
-//    // nrf_gpio_cfg_default(BLE_P005_IN1_ANALOG);
-//    // nrf_gpio_pin_clear(BLE_P017_OUT1_RELAY);
-//    // nrf_gpio_cfg_default(BLE_P018_OUT2_Digital);
-//    // nrf_gpio_cfg_default(BLE_P019_IGNI);
-//    // nrf_gpio_cfg_default(PWM_CH1_PIN);
-//    // nrf_gpio_cfg_default(PWM_CH0_PIN);
-//    nrf_gpio_cfg_default(BLE_LDO_EN);
-//    // nrf_gpio_cfg_default(P027_CHARGE_EN);
+    //clock_hfclk_release();  //NALAMCU-186//
+	ble_send_timer_stop_c();
+
+
+    // 15ma
+    pf_gpio_write(GPIO_RS232_EN, 0);
+	pf_gpio_write(GPIO_BLE_CAN_PWR_EN, 0);
+	pf_gpio_write(GPIO_CS_12V_EN, 0);
+
+
+
+    pf_gpio_write(GPIO_ST_MCU_PWR_EN, 0);
+	pf_gpio_write(GPIO_CS_3V3_EN, 0);
+	// pf_gpio_write(GPIO_DC_DC_9V5_EN, 0);
+	pf_gpio_write(GPIO_CS_nRST, 0);
+
+
+    //4 ma
+    nrf_delay_ms(10);	// Wait for voltage decline
+	
+    gpio_deinit(GPIO_Hall_Tamper);
+    gpio_deinit(GPIO_RS232_EN);
+	gpio_deinit(GPIO_BLE_CAN_PWR_EN);
+	gpio_deinit(GPIO_CS_12V_EN);
+
+    gpio_deinit(GPIO_ST_MCU_PWR_EN);
+	gpio_deinit(GPIO_CS_3V3_EN);
+	// gpio_deinit(GPIO_DC_DC_9V5_EN);
+	gpio_deinit(GPIO_CS_nRST);
+
+    gpio_deinit(GPIO_ST_UART1_TO_UART2_EN);
+	gpio_deinit(GPIO_ST_UART1_TO_UART3_EN);
+	gpio_deinit(GPIO_ST_UART2_TO_UART3_EN);
+
+}
+
+void pf_cfg_recovery_from_sleep(void)
+{
+    if (monet_data.uartPeriTXDEnabled == 0)
+    pf_uart_peri_init(5, 0);
+
+    gpio_init_pin(GPIO_CS_nRST);
+//	gpio_init_pin(GPIO_DC_DC_9V5_EN);
+	// gpio_init_pin(GPIO_VDD_MDM_EN);
+	gpio_init_pin(GPIO_CS_3V3_EN);
+//	pf_gpio_write(GPIO_CHRG_SLEEP_EN, 0);	// Set low to enable battery power path to charger chip
+	gpio_init_pin(GPIO_ST_MCU_PWR_EN);
+	gpio_init_pin(GPIO_ST_UART2_TO_UART3_EN);	// Should called after GPIO_ST_MCU_PWR_EN init
+	gpio_init_pin(GPIO_ST_UART1_TO_UART3_EN);
+	gpio_init_pin(GPIO_ST_UART1_TO_UART2_EN);
+	gpio_init_pin(GPIO_Hall_Tamper);
+	gpio_init_pin(GPIO_CS_12V_EN);
+	gpio_init_pin(GPIO_BLE_CAN_PWR_EN);
+
+	gpio_init_pin(GPIO_RS232_EN);
+    ble_send_timer_start_c();
 }
 
 void pf_delay_ms(uint32_t ms)
@@ -2005,3 +2046,42 @@ void printf_hex_and_char(uint8_t *p_data, uint16_t len)
     }
 }
 
+
+//0111 zazumcu-174 "Dut to off_line issue we changed the api, but we didn't reappear the phenomenon"
+void pf_sd_hfclk_request(void)
+{
+    if (keep_sync != 1)
+    {
+        NRF_LOG_RAW_INFO("pf_sd_hfclk_request not sync \r");   // TODO add protect action
+        return;
+    }
+    keep_sync = 2;
+    uint16_t count = 0;
+    sd_clock_hfclk_request();
+    while (false == nrf_drv_clock_hfclk_is_running())
+    {
+        pf_delay_ms(1);
+        count++;
+        if (count > 3000)
+        {
+            NRF_LOG_RAW_INFO("pf_sd_hfclk_request fail \r");
+            NRF_LOG_FLUSH();
+            return;
+        }
+    }
+    NRF_LOG_RAW_INFO("pf_sd_hfclk_request success %d \r", keep_sync);
+    NRF_LOG_FLUSH();
+}
+
+void pf_sd_hfclk_release(void)  
+{
+    if (keep_sync != 2)
+    {
+        NRF_LOG_RAW_INFO("pf_sd_hfclk_release not sync \r");  // TODO add protect action
+        return;
+    }
+    keep_sync = 1;
+    NRF_LOG_RAW_INFO("pf_sd_hfclk_release  \r");
+    NRF_LOG_FLUSH();
+    sd_clock_hfclk_release();   
+}

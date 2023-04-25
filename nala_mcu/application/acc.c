@@ -237,6 +237,13 @@ void ars_PollAccStream(void) {
                 axisVector.y = (RawSamples[index].y * scalingShift) >> 4; // AT102PMCU-11
                 axisVector.z = (RawSamples[index].z * scalingShift) >> 4; // AT102PMCU-11
                 (void)ARS_QUEUE_PUSH_CYCLIC(ars_accStreamQ, axisVector);
+
+            #ifdef USE_TILT 
+                #define ARS_ACC_TITLT_Q_SIZE 16
+                ARS_QUEUE_DEFINE_TYPE(ars_accQ_t, accValues_t, ARS_ACC_TITLT_Q_SIZE);
+                extern ARS_QUEUE_DEFINE(ars_accQ_t, ars_accQ);
+                (void)ARS_QUEUE_PUSH_CYCLIC(ars_accQ, axisVector);
+            #endif /*USE_TILT*/
             }
         }
         readyFlag = 1;

@@ -289,6 +289,7 @@ void MCU_Sleep_MDM(void)
    monet_data.bbofftime = count1sec;
    disableEventIReadyFlag(); // LM-25
    monet_gpio.Intstatus = 0;
+   setShouldPollAcc(false);
 }
 
 void MCU_Sleep_APP(void)
@@ -686,6 +687,7 @@ void InitApp(uint8_t resetfromDFU)
 
 	monet_data.sleepmode = 0; // SIMBAMCU-29
 
+    keep_sync = 1;
 //    ble_connection_channel_init();
 
 //    monet_data.glass_break.debounce = CAMERA_GLASS_BREAK_DEBOUNCE_INVALID;
@@ -1088,11 +1090,13 @@ SEND_AGAIN:
             }
             MCU_Sleep_APP();
             MCU_Sleep_MDM();
-            pf_cfg_before_sleep();
            // monet_data.SleepState = SLEEP_NORMAL;
-            clock_hfclk_release(); 
+           // clock_hfclk_release(); 
+            pf_sd_hfclk_release();
+
             monet_data.SleepStateChange = 1;
-            monet_data.bbSleepNormalDelay = 2;
+            monet_data.bbSleepNormalDelay = 2 + BB_SLEEP_CONFIG_DELAY_CNT;
+            monet_data.bbSleepConfigDelay = BB_SLEEP_CONFIG_DELAY_CNT;    
             ble_send_timer_stop_c();
         }
     }
@@ -1318,7 +1322,16 @@ void acc_tilt_check(void)
     // PUMAMCU-146, save power when tilt timer is zero
     if (monet_data.TiltEventTimer && (monet_data.bShouldPollAcc && monet_data.bI2CisEnabled)) { // SIMBAMCU-30 MNT-1494 If Timer is not set don't process tilt
         // PUMAMCU-146
+
+        #if (SUPPORT_ACC_STREAMING == 0) 
         ars_PollAcc();
+        #else 
+        if (SLEEP_OFF != monet_data.SleepState)
+        ars_PollAcc();
+        monet_data.AccDataAvailable = 0; // here operates this variable as old logic. But it's not used.
+        #endif /*(SUPPORT_ACC_STREAMING)*/
+
+
         uint32_t nSamples = (uint32_t)ARS_QUEUE_COUNT(ars_accQ);
         volatile double differentialTilt = 0;
         uint32_t i = 0;
@@ -1639,7 +1652,7 @@ void atel_timerTickHandler(uint32_t tickUnit_ms)
 //		printf("BUBX %u\r\n", monet_data.BUBX);;//////////////////
 //		accInterruptFlag = 0;//////////////////
     }
-	acc_tilt_check();
+	//acc_tilt_check();
 
     // When uart idle time > (TIME_UNIT_IDLE_COUNT * 100 ms)
     // MCU should be able to enter sleep mode
@@ -1685,6 +1698,7 @@ void atel_timerTickHandler(uint32_t tickUnit_ms)
         }
     }
 
+    acc_tilt_check();
     atel_uart_restore();
 	monet_gpioEventGenerator();
 	
@@ -1725,7 +1739,8 @@ void monet_gpioEventGenerator(void)
 //#endif
         if (monet_data.gpioEv[i].gpioCurrent != nValue) {
             if (monet_data.gpioEv[i].debouncing) {
-				if (monet_data.SleepState == SLEEP_HIBERNATE)	// Systick freq. is significantly reduced when in Hibernatioin/Sleep mode. Refer to timer_systick_handler() for more info.
+				//if (monet_data.SleepState == SLEEP_HIBERNATE)	// Systick freq. is significantly reduced when in Hibernatioin/Sleep mode. Refer to timer_systick_handler() for more info.
+                if (monet_data.SleepState != SLEEP_OFF)
 				{
 					uint32_t debounce_step = 0;
 					
@@ -1802,9 +1817,15 @@ void monet_gpioEventGenerator(void)
 void mnt_accHeartbeat(void)
 {
     static uint32_t totalsamples = 0; // SLP01MCU-143
-    ars_PollAccStream();
+
+    //ars_PollAccStream();
+
     if ((SLEEP_OFF == monet_data.SleepState) && mp_isEventIReadyFlag()) 
     { // WCMCU-139 & WCMCU-141 Block streaming message until App UART is ready
+    
+        ars_PollAccStream();  //reduce the power consumption when device in sleep\hibernate mode
+
+
         LIS_ODR_t odr =(LIS_ODR_t) config_data.ar[1]; //md_getCurrentODR();
         uint32_t nStreamSamples = ((LIS_ODR_100Hz == odr) ? 32 : (LIS_ODR_10Hz == odr) ? 10 : (LIS_ODR_25Hz == odr) ? 25 : 16); // AT102PMCU-11 WCMCU-143
         uint32_t nSamples = (uint32_t)ARS_QUEUE_COUNT(ars_accStreamQ);
@@ -1846,6 +1867,11 @@ void mnt_accHeartbeat(void)
             }                
         }
 #if defined(SUPPORT_ACC_STREAMING) // WCMCU-9
+    }
+    else
+    {
+        ARS_QUEUE_RESET(ars_accStreamQ);
+        
     }
 #endif // End SUPPORT_ACC_STREAMING
     if (ARS_QUEUE_IS_EMPTY(ars_accStreamQ)) {
@@ -2061,10 +2087,11 @@ void atel_timer1s(void)
                       monet_data.uartAliveDebounce,
                       monet_data.uartMdmInitCount,
                       monet_data.uartMdmDeinitCount);
-    NRF_LOG_RAW_INFO("Idle(%d:%d 100ms) McuWIdle(%d)\r",
+    NRF_LOG_RAW_INFO("Idle(%d:%d 100ms) McuWIdle(%d) StateChange(%d) \r",
                       monet_data.uart_idle_wake,
                       monet_data.uart_idle_100ms,
-                      monet_data.mcuWillIdle);
+                      monet_data.mcuWillIdle,
+                      monet_data.SleepStateChange);
     NRF_LOG_RAW_INFO("CargoOn(%u) ZazuPath(%u) PairMode(%u) BLEState(%u) BLECon(%u) Inpairing(%u)\r",
                       monet_data.V3PowerOn,
                      (uint32_t)com_method_zazu_get(),
@@ -2084,6 +2111,12 @@ void atel_timer1s(void)
                       monet_data.charge_mode2_disable,
                       monet_data.AdcBackupAccurate,
                       adc_to_vol_conv(monet_data.AdcBackupAccurate, VOL_BAT_FACTOR));
+    NRF_LOG_RAW_INFO("Timerevt:%d Pollacc:%d bI2cEandle:%d Thred:%d Timer:%d \r", 
+                      monet_data.TiltEventTimer, 
+                      monet_data.bShouldPollAcc, 
+                      monet_data.bI2CisEnabled, 
+                      monet_data.TiltThreshold, 
+                      accPollingEnableTimer);
     NRF_LOG_RAW_INFO("UartInitState (%d:%d) SleepState(%d) MdmWakeMcu(%d) TxRx(%d:%d)\r",
                       monet_data.uartToBeDeinit, 
                       monet_data.uartToBeInit,
@@ -2303,6 +2336,18 @@ void atel_timer1s(void)
             monet_data.bbPowerOffInprocess = 1;
 		}
 	}
+
+    if (monet_data.bbSleepConfigDelay)
+    {
+        monet_data.bbSleepConfigDelay--;
+        if (monet_data.bbSleepConfigDelay == 0)
+        {
+            NRF_LOG_RAW_INFO("Enter to sleep.\r");
+			NRF_LOG_FLUSH();
+            pf_cfg_before_sleep();
+        }
+    }
+
 
     if ((monet_data.phonePowerOn == 0) && (monet_data.bbPowerOnDelay == 0))
     {
@@ -3209,8 +3254,14 @@ void device_bootloader_enter_dealy(uint32_t delta)
 }
 
 void setShouldPollAcc(bool value) {
+    bool phonPowCondition = true;
+    if (monet_data.SleepState != SLEEP_OFF)
+    {
+        phonPowCondition = false;
+    }
     if (value &&
-        !monet_data.phonePowerOn && 
+        //!monet_data.phonePowerOn && 
+        !phonPowCondition &&
         (monet_data.TiltEventTimer > 0)) {
         // MNT-1494 Setup how long to enable poll if baseband is off and tilt is enabled
         accPollingEnableTimer = monet_data.TiltEventTimer + 2;
@@ -3248,47 +3299,47 @@ void CheckInterrupt(void)
 }
 
 
-void clock_hfclk_release(void)  //NALAMCU-186//
-{
-    uint16_t count = 0;
-    NRF_LOG_RAW_INFO("clock_hfclk_release hfclk_is_running: %d\r", nrf_drv_clock_hfclk_is_running());
-    NRF_LOG_FLUSH();
+// void clock_hfclk_release(void)  //NALAMCU-186//
+// {
+//     uint16_t count = 0;
+//     NRF_LOG_RAW_INFO("clock_hfclk_release hfclk_is_running: %d\r", nrf_drv_clock_hfclk_is_running());
+//     NRF_LOG_FLUSH();
 
-    if(nrf_drv_clock_hfclk_is_running())
-    {
-    	nrf_drv_clock_hfclk_release();
-        while (nrf_drv_clock_hfclk_is_running())
-        {
-            pf_delay_ms(1);
-            count++;
-            if (count > 1000)
-            {
-                return;
-            }
-        }
-    }
-}
+//     if(nrf_drv_clock_hfclk_is_running())
+//     {
+//     	nrf_drv_clock_hfclk_release();
+//         while (nrf_drv_clock_hfclk_is_running())
+//         {
+//             pf_delay_ms(1);
+//             count++;
+//             if (count > 1000)
+//             {
+//                 return;
+//             }
+//         }
+//     }
+// }
 
-void clock_hfclk_request(void) //NALAMCU-186::Need to manually switch to the external 32 MHz crystal
-{
-    uint16_t count = 0;
-    NRF_LOG_RAW_INFO("clock_hfclk_request hfclk_is_running: %d\r", nrf_drv_clock_hfclk_is_running());
-    NRF_LOG_FLUSH();
+// void clock_hfclk_request(void) //NALAMCU-186::Need to manually switch to the external 32 MHz crystal
+// {
+//     uint16_t count = 0;
+//     NRF_LOG_RAW_INFO("clock_hfclk_request hfclk_is_running: %d\r", nrf_drv_clock_hfclk_is_running());
+//     NRF_LOG_FLUSH();
 	
-    if(!nrf_drv_clock_hfclk_is_running())
-    {
-        nrf_drv_clock_hfclk_request(NULL);
-        while (!nrf_drv_clock_hfclk_is_running())
-        {
-            pf_delay_ms(1);
-            count++;
-            if (count > 1000)
-            {
-                return;
-            }
-        }
-    }
-}
+//     if(!nrf_drv_clock_hfclk_is_running())
+//     {
+//         nrf_drv_clock_hfclk_request(NULL);
+//         while (!nrf_drv_clock_hfclk_is_running())
+//         {
+//             pf_delay_ms(1);
+//             count++;
+//             if (count > 1000)
+//             {
+//                 return;
+//             }
+//         }
+//     }
+// }
 
 /* Frame Structure: <0x7E><0x7E>$<L><C><P><CKSM><CR><LF>
  * <0x7E><0x7E> - Preamble
@@ -4915,7 +4966,7 @@ static void monet_bleCcommand_Q(uint8_t** param, uint8_t *p_len)
     if (*p_len != 6)
     {
         NRF_LOG_RAW_INFO("monet_bleCcommand_Q cmd length invalid \r");
-        return;
+        //return;
     }
 
     Param[0] = 'q';
@@ -5474,11 +5525,16 @@ void atel_uart_restore(void)
         else {
             // TODO: disbale uart tx rx gpio function
             NRF_LOG_RAW_INFO("atel_uart_restore UartTick:%d SleepChange:%d SleepState%d \r",monet_data.uartTickCount, monet_data.SleepStateChange, monet_data.SleepState);
+            pf_sd_hfclk_request();
+
             pf_uart_mdm_init(255,0);
             monet_data.uartToBeInit = 0;
             monet_data.uartTickCount = 0;
             monet_data.SleepState = SLEEP_OFF;
             monet_data.SleepStateChange = 1;
+            ble_send_timer_start_c();
+            pf_cfg_recovery_from_sleep();
+            setShouldPollAcc(true);
 
         }
     }
@@ -5524,8 +5580,9 @@ AGAIN:
         NRF_LOG_FLUSH();
         if ((0 == monet_data.bbSleepNormalDelay) && (mdm_wake_mcu))
         {
-            clock_hfclk_request(); //SLP01MCU-138::Need to manually switch to the external 32 MHz crystal
-			
+           // clock_hfclk_request(); //SLP01MCU-138::Need to manually switch to the external 32 MHz crystal
+			// pf_sd_hfclk_request();
+
             mdm_wake_mcu = 0;
             monet_data.SleepAlarm = 0; // Disable the sleep timer
             // WARNING: This will be called a lot time when modem is not start
@@ -5856,6 +5913,7 @@ void monet_dcommand(uint8_t* pParam, uint8_t Length)
 /* E: External GPIO Event Registration */
 void monet_Ecommand(uint8_t* pParam)
 {
+
 	uint8_t gpio;
     uint8_t nValue;
     uint8_t ReportData[2];
@@ -7476,6 +7534,21 @@ void monet_DDcommand_decode_byte(uint8_t* pParam, uint8_t Length)
     }
 }
 
+
+void monet_1Ecommand(uint8_t* pParam, uint8_t Length)
+{
+    uint8_t Response[4] = {0};
+    Response[0] = pParam[0];
+    Response[1] = pf_gpio_read(GPIO_CS_MERCREBOOT);
+    if (Response[0] != Response[1])
+    {
+        pf_gpio_write(GPIO_CS_MERCREBOOT, (pParam[0] ? 1: 0));
+    }
+    Response[1] = pf_gpio_read(GPIO_CS_MERCREBOOT);
+    BuildFrame(0x1E, Response, 2);
+    NRF_LOG_RAW_INFO("monet_1Ecommand %x %d \r", Response[0], Response[1]);
+}
+
 void ble_pair_test(uint8_t para)
 {
 	if (para == 0)
@@ -7645,6 +7718,9 @@ void HandleRxCommand(void)
         break;
     case 0xDD:
         monet_DDcommand(&monet_data.iorxframe.data[0], monet_data.iorxframe.length);
+        break;
+    case 0x1E:
+        monet_1Ecommand(&monet_data.iorxframe.data[0], monet_data.iorxframe.length);
         break;
     case '0':
         monet_0command(monet_data.iorxframe.data[0]);

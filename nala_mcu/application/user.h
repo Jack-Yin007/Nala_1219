@@ -30,6 +30,7 @@
 #define TIME_UNIT_IN_SLEEP_NORMAL       (TIME_UNIT) //ms
 #define TIME_UNIT_IN_SLEEP_HIBERNATION  (1000)      //ms
 #define TIME_UNIT_IDLE_COUNT            (2)         // 100ms
+#define BB_SLEEP_CONFIG_DELAY_CNT       (3u)
 
 #define DEVICE_BOOT_ENTER_DELAY_MS (1000)
 
@@ -543,6 +544,7 @@ typedef struct {
     uint16_t			BubCriticalTime;        // SIMBAMCU-7 MNT-2240
     uint8_t             SensorDelayedTest;
     uint8_t             bbSleepNormalDelay;
+    uint8_t             bbSleepConfigDelay;
     uint8_t             bbPowerOffDelay;
     uint8_t             bbPowerOffInprocess;
     uint8_t             bbPowerOnDelay;
@@ -866,8 +868,8 @@ void ble_conn_param_updated_check(void);
 void device_ble_status_report(uint32_t delta);
 void device_bootloader_enter_dealy(uint32_t delta);
 void CheckInterrupt(void);
-void clock_hfclk_release(void); //NALAMCU-186//
-void clock_hfclk_request(void); //NALAMCU-186//
+// void clock_hfclk_release(void); //NALAMCU-186//
+// void clock_hfclk_request(void); //NALAMCU-186//
 
 void MCU_TurnOn_MDM(void);
 void MCU_Wakeup_MDM(void);

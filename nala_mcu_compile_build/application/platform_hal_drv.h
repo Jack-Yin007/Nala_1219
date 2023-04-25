@@ -29,6 +29,7 @@ typedef enum
 extern volatile uint8_t adc_convert_over;
 extern volatile uint32_t gTimer;
 extern volatile uint32_t accInterruptFlag;
+extern volatile uint8_t  keep_sync;
 
 void pf_adc_init(void);
 void pf_adc_start(void);
@@ -93,6 +94,7 @@ void pf_BuzzerOn(void);
 void pf_cfg_before_hibernation(void);
 void pf_cfg_recover_from_hibernation(void);
 void pf_cfg_before_sleep(void);
+void pf_cfg_recovery_from_sleep(void);
 
 void pf_delay_ms(uint32_t ms);
 
@@ -136,6 +138,11 @@ void ble_disconnect_with_peer(uint8_t inst_id, uint8_t type);
 #define PF_USE_JUMP_TO_ENTER_BOOT (0)
 
 void printf_hex_and_char(uint8_t *p_data, uint16_t len);
+
+
+void pf_sd_hfclk_request(void);
+void pf_sd_hfclk_release(void);
+
 
 #ifdef __cplusplus
 }
